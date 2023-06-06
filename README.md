@@ -97,3 +97,5 @@ Queremos poder ser capaces de:
 - title_genre_id: PK. ID único.
 - title_id: FK. Referencia a la tabla Titles para el titulo del episodio.
 - genre_id: FK. Referencia a la tabla Genres.
+
+
