@@ -10,7 +10,7 @@ tvmovie, short, etc) y un campo donde figuren los nombres
 de los directores y escritores donde tengamos esa información.
 */
 
--- Creamos una vista para tal fin:
+-- Creamos una VIEW para tal fin:
 USE IMDB_DB;
 
 CREATE OR REPLACE VIEW VW_films_type_dire_writer AS (
@@ -34,7 +34,7 @@ Nos piden una vista que nos marque el progreso de carga de estos datos para llev
 un control.
 */
 
--- Vamos a crear una vista que le de a nuestra gerencia el procentaje de titulos
+-- Vamos a crear una VISTA que le de a nuestra gerencia el procentaje de titulos
 -- que todavía no tienen cargado ningun guionista ni director.
  
 CREATE OR REPLACE VIEW VW_crew_to_complete AS (
@@ -46,3 +46,46 @@ CREATE OR REPLACE VIEW VW_crew_to_complete AS (
 );
 
 SELECT * FROM VW_crew_to_complete; -- Porcentaje de peliculas que no tienen ningun escritor ni guinista cargado
+
+
+
+-- VIEW donde tengamos Resumen de cantidad de Titulos por Genero
+
+CREATE OR REPLACE VIEW VW_quantity_per_genre AS (
+	SELECT COUNT(t.title_original) quantity, g.genre_name
+	FROM Titles t
+	JOIN Title_types tt ON t.title_type_id = tt.type_id
+	JOIN Title_Genres tg ON t.title_id = tg.title_id
+	JOIN Genres g on tg.genre_id = g.genre_id
+	GROUP BY  g.genre_name
+	ORDER BY quantity DESC
+);
+
+SELECT * FROM VW_quantity_per_genre;
+
+
+
+-- VIEW donde tengamos Cantidad de profesiones en nuestra tabla persona
+
+CREATE OR REPLACE VIEW VW_profession_count AS (
+	SELECT profession_name, COUNT(p.person_id) quantity 
+    FROM Person p
+	LEFT JOIN Profession pr ON p.primary_profession_id = pr.profession_id
+	GROUP BY pr.profession_name 
+	ORDER BY quantity DESC
+);
+
+SELECT * FROM VW_profession_count;
+
+
+
+-- VIEW donde veamos los titulos que tenemos que se hayan lanzado en los ultimos 3 años.
+
+CREATE OR REPLACE VIEW VW_titles_last_3_years AS (
+	SELECT * 
+	FROM Titles t
+	WHERE (YEAR(NOW()) - title_start_year) <= 3
+);
+
+SELECT title_primary, title_start_year FROM VW_titles_last_3_years;
+
