@@ -60,14 +60,9 @@ DROP PROCEDURE IF EXISTS `SP_delete_last_person_added`;
 DELIMITER // 
 CREATE PROCEDURE `SP_delete_last_person_added` ()
 BEGIN
-	SET @name_person_deleted = '';
     SET @id_to_delete = (SELECT MAX(person_id) FROM Person) ;
     SELECT CONCAT('Deleting register id:', @id_to_delete) as Message;
 	DELETE FROM Person WHERE person_id = @id_to_delete;
---    SET @query_str =  CONCAT('DELETE FROM Person WHERE person_id = ', @id_to_delete, ';') ;
--- 	  PREPARE sql_query FROM @query_str ;
---     EXECUTE sql_query;
---     DEALLOCATE PREPARE sql_query ;
 END //
 DELIMITER ;
 
