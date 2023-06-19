@@ -47,7 +47,7 @@ CALL SP_titles_last_x_years(5, 'title_original', True);
 
 /*
  2)
-  Vamos a crear una rutina que nos permita eliminar el último registro cargado en una tabla en una tabla.
+  Vamos a crear una rutina que nos permita eliminar el último registro cargado en la tabla Person.
   Se puede pensar como el boton de Deshacer luego de una acción de inserción.
   Insertamos una linea para usar de ejemplo.
 */
