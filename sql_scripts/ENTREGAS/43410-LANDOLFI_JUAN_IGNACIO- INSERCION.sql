@@ -28,8 +28,8 @@ CREATE TABLE IF NOT EXISTS Person (
 	person_id INT NOT NULL AUTO_INCREMENT ,
     primary_profession_id INT NOT NULL ,
     primary_name VARCHAR(50) NOT NULL ,
-    birth_year YEAR ,
-    death_year YEAR ,
+    birth_year INT ,
+    death_year INT ,
     last_modified TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
     PRIMARY KEY (person_id)
 );
