@@ -193,4 +193,5 @@ Generamos una consulta sql simple a partir de concatenar los distintos valores s
 - Tablas involucradas: Person.
 - Situación: Necesitamos crear rutina que nos permita eliminar el último registro cargado en la tabla Person. Se puede pensar como el boton de Deshacer luego de una acción de inserción.
 - Detalle: En esta rutina se busca, a partir de la función MAX() en la columna de la primary key, el último registro ingresado. Esa id es guardada en una variable y luego utilizada para filtrar el registro en la sentencia de eliminación.
+<br>
 
