@@ -41,12 +41,11 @@ CREATE OR REPLACE VIEW VW_crew_to_complete AS (
 	SELECT COUNT(DISTINCT t.title_id) / (select count(title_id) FROM IMDB_DB.Titles)
 	FROM IMDB_DB.Titles t
 	LEFT JOIN Crew c ON t.title_id = c.title_id
-	LEFT JOIN Person p ON c.person_id = p.person_id
 	WHERE c.crew_id IS NULL
 );
 
-SELECT * FROM VW_crew_to_complete; -- Porcentaje de peliculas que no tienen ningun escritor ni guinista cargado
 
+SELECT * FROM VW_crew_to_complete; -- Porcentaje de peliculas que no tienen ningun escritor ni guinista cargado
 
 
 -- VIEW donde tengamos Resumen de cantidad de Titulos por Genero
@@ -54,7 +53,6 @@ SELECT * FROM VW_crew_to_complete; -- Porcentaje de peliculas que no tienen ning
 CREATE OR REPLACE VIEW VW_quantity_per_genre AS (
 	SELECT COUNT(t.title_original) quantity, g.genre_name
 	FROM Titles t
-	JOIN Title_types tt ON t.title_type_id = tt.type_id
 	JOIN Title_Genres tg ON t.title_id = tg.title_id
 	JOIN Genres g on tg.genre_id = g.genre_id
 	GROUP BY  g.genre_name

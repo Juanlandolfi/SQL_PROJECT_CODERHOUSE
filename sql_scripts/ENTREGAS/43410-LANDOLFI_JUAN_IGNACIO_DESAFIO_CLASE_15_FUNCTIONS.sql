@@ -61,7 +61,7 @@ FROM (
 		GROUP BY t.title_original, p.profession_name ) sub;
 RETURN campaing_cost;
 END 
-// DELIMITER ;
+// DELIMITER ;	
 
 SELECT ads_budget(0) anio_cero, ads_budget(2015) anio_2015, ads_budget(2018) anio_2018, ads_budget(2022) anio_2022;
 
