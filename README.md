@@ -200,3 +200,31 @@ Generamos una consulta sql simple a partir de concatenar los distintos valores s
 - Detalle: En esta rutina se busca, a partir de la función MAX() en la columna de la primary key, el último registro ingresado. Esa id es guardada en una variable y luego utilizada para filtrar el registro en la sentencia de eliminación.
 <br>
 
+
+## Triggers
+
+<br>
+
+**insert_titles_log_trigger**
+<br>
+
+Este trigger se dispara cuando se inserta una valor en la tabla Titles, la cual es nuestra tabla más importante en la base de datos. Este trigger guarda la misma información que la tabla Titles en una nueva tabla llamada `Log_titles` pero también agrega información relacionada al usuario que realizó la operación.
+<br>
+
+**update_titles_log_trigger**
+<br>
+
+Guarda la misma información que el trigger anterior pero en el contexto de un update a la tabla Titles.
+<br>
+
+**delete_titles_log_trigger**
+<br>
+
+Guarda la misma información que el trigger anterior pero en el contexto de un delete a la tabla Titles.
+<br>
+
+**insert_language_trigger**
+<br>
+
+Este trigger convierte a minúsculas los datos que se están por grabar en la tabla Languages antes de cada inserción. Con el mismo nos aseguramos que todos los valores cargados en esta tabla sean lowercase.
+<br>
