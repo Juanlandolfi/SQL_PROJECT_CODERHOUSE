@@ -22,7 +22,6 @@ Para reproducir el schema ejecutar los scripts sql ubicados en `/sql_scripts/ENT
 - 15_triggers.sql
 - 16_DCL.sql
 - 17_TCL.sql
-- 18_backup.sql
 
 <br>
 
