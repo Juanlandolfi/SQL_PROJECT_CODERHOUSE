@@ -13,11 +13,18 @@ Crear y normalizar los datasets provenientes de IMDb relacionado a peliculas y s
 <br>
 
 Queremos poder ser capaces de:
+- Tener un uso eficiente del espacio de almacenamiento al normalizar las tablas.
 - Buscar titulos por nombre, director, categoría, etc.
 - Actores con mayor cantidad de titulos en la db.
 - Etc.
 
 <br>
+
+## DER
+
+![Diagrama de Entidad Relacion TP Final](https://raw.githubusercontent.com/Juanlandolfi/SQL_PROJECT_CODERHOUSE/main/DER.png)
+
+
 
 ## Descripción de las tablas propuestas para normalizar la base de datos
 
