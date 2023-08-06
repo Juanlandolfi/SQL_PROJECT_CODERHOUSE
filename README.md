@@ -14,8 +14,6 @@ Crear y normalizar los datasets provenientes de IMDb relacionado a peliculas y s
 
 Queremos poder ser capaces de:
 - Buscar titulos por nombre, director, categoría, etc.
-- Obtener listados de las peliculas del ultimo año con mayor rating.
-- Consultar el director con mayor rating promedio en sus producciones.
 - Actores con mayor cantidad de titulos en la db.
 - Etc.
 

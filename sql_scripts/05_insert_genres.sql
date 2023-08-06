@@ -1,3 +1,5 @@
+USE IMDB_DB;
+
 INSERT INTO
     Genres(genre_name)
 VALUES

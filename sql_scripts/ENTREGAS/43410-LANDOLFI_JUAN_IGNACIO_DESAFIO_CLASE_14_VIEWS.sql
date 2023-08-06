@@ -14,13 +14,16 @@ de los directores y escritores donde tengamos esa información.
 USE IMDB_DB;
 
 CREATE OR REPLACE VIEW VW_films_type_dire_writer AS (
-SELECT title_original, type_name , GROUP_CONCAT( roles SEPARATOR ', ')  directors_and_writers
+SELECT title_original, 
+		type_name , 
+		GROUP_CONCAT( roles SEPARATOR ', ')  directors_and_writers
 FROM (
 	SELECT t.title_original, tt.type_name ,CONCAT(p.primary_name,'(', pr.profession_name,')') roles  FROM Crew c
 	JOIN IMDB_DB.Titles t ON c.title_id = t.title_id
 	JOIN IMDB_DB.Person p ON c.person_id = p.person_id
 	JOIN IMDB_DB.Profession pr ON c.profession_id = pr.profession_id
     JOIN IMDB_DB.Title_types tt ON t.title_type_id = tt.type_id
+    WHERE pr.profession_id IN (5,7) -- 5 Y 7 los id de las profesiones en cuestion
     ) sub
 GROUP BY title_original, type_name
 );
@@ -43,7 +46,6 @@ CREATE OR REPLACE VIEW VW_crew_to_complete AS (
 	LEFT JOIN Crew c ON t.title_id = c.title_id
 	WHERE c.crew_id IS NULL
 );
-
 
 SELECT * FROM VW_crew_to_complete; -- Porcentaje de peliculas que no tienen ningun escritor ni guinista cargado
 

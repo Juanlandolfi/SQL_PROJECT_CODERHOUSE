@@ -20,7 +20,7 @@ READS SQL DATA
     RETURN (SELECT COUNT(title_id) FROM IMDB_DB.Crew WHERE title_id = t_id);
 // DELIMITER ;
 
-SELECT quantity_of_crew(12);
+SELECT quantity_of_crew(10), quantity_of_crew(100), quantity_of_crew(1);
 
 /*
 	Desde gerencia van a aplicar una campaña de difusión de peliculas que se hayan lanzado luego del año XXXX.
@@ -63,6 +63,6 @@ RETURN campaing_cost;
 END 
 // DELIMITER ;	
 
-SELECT ads_budget(0) anio_cero, ads_budget(2015) anio_2015, ads_budget(2018) anio_2018, ads_budget(2022) anio_2022;
+SELECT ads_budget(2015) anio_2015, ads_budget(2018) anio_2018, ads_budget(2022) anio_2022;
 
 

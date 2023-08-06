@@ -25,8 +25,8 @@ CREATE TABLE IF NOT EXISTS Person (
     person_id INT NOT NULL AUTO_INCREMENT,
     primary_profession_id INT NOT NULL,
     primary_name VARCHAR(50) NOT NULL,
-    birth_year YEAR,
-    death_year YEAR,
+    birth_year INT,
+    death_year INT,
     last_modified TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
     PRIMARY KEY (person_id)
 );
@@ -53,8 +53,8 @@ CREATE TABLE IF NOT EXISTS Titles (
     title_primary VARCHAR(500) NOT NULL,
     title_original VARCHAR(500) NOT NULL,
     title_adult BOOL,
-    title_start_year YEAR,
-    title_end_year YEAR,
+    title_start_year INT,
+    title_end_year INT,
     title_runtime INT,
     last_modified TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
     PRIMARY KEY (title_id)
